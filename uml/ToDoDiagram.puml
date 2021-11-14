@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App{
+public static void main()
+public void start()
+}
+
+' note: previous methods that are no longer needed have been removed from UML diagram
+' obsolete classes can be found in the controller class
+class Controller{
+public void initialize()
+public void addEvent()
+private void refresh()
+public void removeList()
+public void changeStatus()
+public void clearList()
+public void showComplete()
+public void showIncomplete()
+public void showAll()
+public void importFile()
+public void exportFile()
+public void editDescription()
+public void editDueDate()
+}
+
+class Event{
+private String description;
+private LocalDate date;
+private String status;
+private HashMap<LocalDate, String> toDoItems;
+
+getters()
+setters()
+public Event()
+}
+
+Event *-- Controller
+
+@enduml

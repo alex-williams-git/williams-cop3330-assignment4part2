@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+javafx{
+    modules = ['javafx.controls', 'javafx.fxml']
+    version = "11.0.2"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+    scanForTestClasses = false
+    include "**/*ControllerTest.java"
+}
+
+configurations{
+    testCompile{
+        extendsFrom testImplementation
+    }
+}
+
+run {
+    standardInput = System.in
+}
+
+application {
+    mainModule = 'ucf.assignments'
+    mainClass = 'ucf.assignments.App'
+}

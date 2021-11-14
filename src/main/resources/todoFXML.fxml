@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.Controller">
+   <items>
+      <TabPane prefHeight="304.0" prefWidth="924.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Help">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea layoutX="7.0" layoutY="6.0" prefHeight="251.0" prefWidth="907.0" text="Read Me Before Using:&#10;*If you know how to use the To-Do List, click on the To Do List tab to start using it*&#10;&#10;-To add new item: enter the description in the description text field. Pick a dute date with the date picker. Click the Add button.&#10;-To remove item: select the desired row to delete. Click the Remove button.&#10;-To clear list: select the Clear List button.&#10;-To edit item description: select the desired row and highlight the description. Enter the desired new description and press Enter key.&#10;-To edit due date: select the desired row to change date. Select a date from the date picker. Click the Edit Due Date button.&#10;-To change the status of an item: select the desired row to change the status. Select the Change Status button.&#10;-To display complete items: click the Show Complete button.&#10;-To display incomplete items: click the Show Incomplete button.&#10;-To display all items: click the Show All button.&#10;-To export the list: enter the desired file path in the Export File Path text field. Click the Export button.&#10;-To import an existing list: enter the desired file path in the Import File Path text field. Click the Import button." />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="To Do List">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableView" layoutX="5.0" layoutY="1.0" prefHeight="260.0" prefWidth="917.0">
+                          <columns>
+                            <TableColumn fx:id="descriptionList" prefWidth="567.0" text="Description" />
+                            <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="202.0" text="Date Due" />
+                              <TableColumn fx:id="statusColumn" prefWidth="145.0" text="Status" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="924.0">
+         <children>
+            <Button fx:id="addButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#addEvent" text="Add List" />
+            <DatePicker fx:id="datePicker" layoutX="112.0" layoutY="11.0" />
+            <TextField fx:id="descriptionTextField" layoutX="351.0" layoutY="11.0" prefHeight="31.0" prefWidth="559.0" promptText="Add List Description" />
+            <Button fx:id="removeButton" layoutX="774.0" layoutY="151.0" mnemonicParsing="false" onAction="#removeList" prefHeight="31.0" prefWidth="135.0" text="Remove" />
+            <Button fx:id="statusButton" layoutX="774.0" layoutY="182.0" mnemonicParsing="false" onAction="#changeStatus" prefHeight="31.0" prefWidth="135.0" text="Change Status" />
+            <Button fx:id="clearButton" layoutX="774.0" layoutY="244.0" mnemonicParsing="false" onAction="#clearList" prefHeight="31.0" prefWidth="135.0" text="Clear List" />
+            <Button fx:id="completeButton" layoutX="774.0" layoutY="48.0" mnemonicParsing="false" onAction="#showComplete" prefHeight="31.0" prefWidth="135.0" text="Show Complete" />
+            <Button fx:id="incompleteButton" layoutX="774.0" layoutY="78.0" mnemonicParsing="false" onAction="#showIncomplete" prefHeight="31.0" prefWidth="135.0" text="Show Incomplete" />
+            <Button fx:id="showAllButton" layoutX="774.0" layoutY="108.0" mnemonicParsing="false" onAction="#showAll" prefHeight="31.0" prefWidth="135.0" text="Show All" />
+            <TextField fx:id="importTextField" layoutX="13.0" layoutY="64.0" prefHeight="31.0" prefWidth="559.0" promptText="Import File Path" />
+            <TextField fx:id="exportTextField" layoutX="13.0" layoutY="110.0" prefHeight="31.0" prefWidth="559.0" promptText="Export File Path" />
+            <Button fx:id="importButton" layoutX="590.0" layoutY="64.0" mnemonicParsing="false" onAction="#importFile" text="Import" />
+            <Button fx:id="exportButton" layoutX="591.0" layoutY="110.0" mnemonicParsing="false" onAction="#exportFile" text="Export" />
+            <Button fx:id="editDueDateButton" layoutX="774.0" layoutY="213.0" mnemonicParsing="false" onAction="#editDueDate" prefHeight="31.0" prefWidth="135.0" text="Edit Due Date" />
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>
